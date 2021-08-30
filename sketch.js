@@ -8,15 +8,24 @@ groundImageimage = loadAnimation('sea.png')
 
 function setup(){
   createCanvas(400,400);
-  ship = createSprite(300,160,20,50)
+  groundImage = createSprite(200,180,20,20)
+  groundImage.velocityX = -3
+  groundImage.addAnimation('plasma',groundImageimage)
+
+  ship = createSprite(300,300,20,50)
+
   ship.addAnimation('nitro',shipimage)
 ship.scale=0.2
 ship.x=50
-groundImage = createSprite(200,180,20,20)
-groundImage.addAnimation('plasma',groundImageimage)
+
 }
 
 function draw() {
   background("blue");
  drawSprites()
+if(groundImage.x<=0){
+  groundImage.x=200
+}
+
+
 }
